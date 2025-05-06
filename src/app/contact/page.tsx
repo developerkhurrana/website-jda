@@ -25,6 +25,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
+import { images } from "@/lib/images";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -68,14 +69,14 @@ export default function ContactPage() {
         {/* Hero Section */}
         <section className="relative h-[40vh] w-full overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1581092921461-eab62e97a2aa?q=80&w=1920&h=1080&auto=format&fit=crop"
+            src={images.hero.contact}
             alt="Contact Us"
             fill
             className="object-cover"
             priority
           />
           <div className="absolute inset-0 bg-black/40" />
-          <div className="container relative z-10 flex h-full items-center px-4 sm:px-6 lg:px-8">
+          <div className="relative z-10 flex h-full items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl text-white">
               <h1 className="text-5xl font-bold tracking-tight sm:text-7xl">
                 Contact Us
@@ -89,144 +90,142 @@ export default function ContactPage() {
 
         {/* Contact Form Section */}
         <section className="py-32">
-          <div className="container px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-7xl">
-              <div className="grid gap-16 lg:grid-cols-2">
-                <div>
-                  <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-                    Let&apos;s Talk
-                  </h2>
-                  <p className="mt-6 text-xl text-muted-foreground">
-                    Have questions about our products or services? We&apos;re
-                    here to help.
-                  </p>
-                  <div className="mt-12 space-y-8">
-                    <div className="flex items-start gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                        <MapPin className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold">Address</h3>
-                        <p className="mt-2 text-muted-foreground">
-                          123 Industrial Park, Mumbai, Maharashtra, India
-                        </p>
-                      </div>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-16 lg:grid-cols-2">
+              <div>
+                <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+                  Let&apos;s Talk
+                </h2>
+                <p className="mt-6 text-xl text-muted-foreground">
+                  Have questions about our products or services? We&apos;re
+                  here to help.
+                </p>
+                <div className="mt-12 space-y-8">
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                      <MapPin className="h-6 w-6 text-primary" />
                     </div>
-                    <div className="flex items-start gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                        <Phone className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold">Phone</h3>
-                        <p className="mt-2 text-muted-foreground">
-                          +91 123 456 7890
-                        </p>
-                      </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">Address</h3>
+                      <p className="mt-2 text-muted-foreground">
+                        123 Industrial Park, Mumbai, Maharashtra, India
+                      </p>
                     </div>
-                    <div className="flex items-start gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                        <Mail className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold">Email</h3>
-                        <p className="mt-2 text-muted-foreground">
-                          info@jaideoautomation.com
-                        </p>
-                      </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                      <Phone className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">Phone</h3>
+                      <p className="mt-2 text-muted-foreground">
+                        +91 123 456 7890
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                      <Mail className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">Email</h3>
+                      <p className="mt-2 text-muted-foreground">
+                        info@jaideoautomation.com
+                      </p>
                     </div>
                   </div>
                 </div>
-                <Card className="border-none bg-transparent shadow-none">
-                  <CardHeader>
-                    <CardTitle className="text-2xl">
-                      Send us a message
-                    </CardTitle>
-                    <CardDescription className="text-lg">
-                      Fill out the form below and we&apos;ll get back to you
-                      shortly
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Form {...form}>
-                      <form
-                        onSubmit={form.handleSubmit(onSubmit)}
-                        className="space-y-6"
-                      >
-                        <FormField
-                          control={form.control}
-                          name="name"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Name</FormLabel>
-                              <FormControl>
-                                <Input placeholder="Your name" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Email</FormLabel>
-                              <FormControl>
-                                <Input
-                                  placeholder="Your email"
-                                  type="email"
-                                  {...field}
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={form.control}
-                          name="phone"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Phone</FormLabel>
-                              <FormControl>
-                                <Input
-                                  placeholder="Your phone number"
-                                  type="tel"
-                                  {...field}
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={form.control}
-                          name="message"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Message</FormLabel>
-                              <FormControl>
-                                <Textarea
-                                  placeholder="Your message"
-                                  className="min-h-[120px]"
-                                  {...field}
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <Button
-                          type="submit"
-                          className="w-full transition-transform duration-300 hover:scale-105"
-                        >
-                          Send Message
-                        </Button>
-                      </form>
-                    </Form>
-                  </CardContent>
-                </Card>
               </div>
+              <Card className="border-none bg-transparent shadow-none">
+                <CardHeader>
+                  <CardTitle className="text-2xl">
+                    Send us a message
+                  </CardTitle>
+                  <CardDescription className="text-lg">
+                    Fill out the form below and we&apos;ll get back to you
+                    shortly
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Form {...form}>
+                    <form
+                      onSubmit={form.handleSubmit(onSubmit)}
+                      className="space-y-6"
+                    >
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Name</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Your name" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Email</FormLabel>
+                            <FormControl>
+                              <Input
+                                placeholder="Your email"
+                                type="email"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Phone</FormLabel>
+                            <FormControl>
+                              <Input
+                                placeholder="Your phone number"
+                                type="tel"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Message</FormLabel>
+                            <FormControl>
+                              <Textarea
+                                placeholder="Your message"
+                                className="min-h-[120px]"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <Button
+                        type="submit"
+                        className="w-full transition-transform duration-300 hover:scale-105"
+                      >
+                        Send Message
+                      </Button>
+                    </form>
+                  </Form>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>

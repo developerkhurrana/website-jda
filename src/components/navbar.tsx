@@ -24,7 +24,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="container mx-auto flex h-16 items-center px-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto max-w-7xl w-full flex h-16 items-center px-4 sm:px-6 lg:px-8">
         <div className="mr-4 flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <span className="font-bold">Jaideo Automation</span>

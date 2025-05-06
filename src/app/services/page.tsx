@@ -13,10 +13,11 @@ import {
   Building2,
   Factory,
   Lightbulb,
-  LineChart,
   Settings,
   Shield,
 } from "lucide-react";
+import Image from "next/image";
+import { images } from "@/lib/images";
 
 const services = [
   {
@@ -112,8 +113,8 @@ export default function ServicesPage() {
       <Navbar />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-background py-20 sm:py-32">
-          <div className="container relative z-10">
+        <section className="relative overflow-hidden bg-background py-20 sm:py-32 w-full">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="mx-auto max-w-2xl text-center">
               <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
                 Our Services
@@ -127,8 +128,8 @@ export default function ServicesPage() {
         </section>
 
         {/* Services Grid */}
-        <section className="py-20 sm:py-32">
-          <div className="container">
+        <section className="py-20 sm:py-32 w-full">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {services.map((service) => (
                 <Card key={service.id} className="flex flex-col">
@@ -164,20 +165,30 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-muted py-20 sm:py-32">
-          <div className="container">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Ready to Transform Your Operations?
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Contact us today to discuss how our automation solutions can
-                benefit your business
-              </p>
-              <div className="mt-8">
-                <Button asChild size="lg">
-                  <Link href="/contact">Get in Touch</Link>
-                </Button>
+        <section className="relative py-32 bg-background pb-16">
+          <div className="absolute inset-0">
+            <Image
+              src={images.cta.products}
+              alt="Industrial Automation"
+              fill
+              className="object-cover opacity-20"
+            />
+          </div>
+          <div className="relative">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="mx-auto max-w-2xl text-center">
+                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                  Ready to Transform Your Operations?
+                </h2>
+                <p className="mt-4 text-lg text-muted-foreground">
+                  Contact us today to discuss how our automation solutions can
+                  benefit your business
+                </p>
+                <div className="mt-8">
+                  <Button asChild size="lg">
+                    <Link href="/contact">Get in Touch</Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

@@ -31,7 +31,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="w-full max-w-[1400px]">{children}</div>
+          <div className="w-full">{children}</div>
         </ThemeProvider>
       </body>
     </html>

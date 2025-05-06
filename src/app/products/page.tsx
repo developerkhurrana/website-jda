@@ -129,7 +129,7 @@ export default function ProductsPage() {
             priority
           />
           <div className="absolute inset-0 bg-black/40" />
-          <div className="container relative z-10 flex h-full items-center px-4 sm:px-6 lg:px-8">
+          <div className="relative z-10 flex h-full items-center mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl text-white">
               <h1 className="text-5xl font-bold tracking-tight sm:text-7xl">
                 Our Products
@@ -144,65 +144,61 @@ export default function ProductsPage() {
 
         {/* Products Grid */}
         <section className="py-32 bg-background">
-          <div className="container px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-7xl">
-              <div className="grid gap-16 sm:grid-cols-2 lg:grid-cols-3">
-                {products.map((product) => (
-                  <Card
-                    key={product.id}
-                    className="group overflow-hidden border-none bg-card shadow-sm hover:shadow-md transition-shadow duration-300"
-                  >
-                    <div className="aspect-square relative overflow-hidden rounded-2xl">
-                      <Image
-                        src={product.image}
-                        alt={product.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        priority={product.id === "control-valve"}
-                      />
-                    </div>
-                    <CardHeader className="p-6">
-                      <product.icon className="h-8 w-8 text-primary transition-transform duration-300 group-hover:scale-110" />
-                      <CardTitle className="text-2xl mt-4">
-                        {product.title}
-                      </CardTitle>
-                      <CardDescription className="text-lg mt-2">
-                        {product.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="px-6">
-                      <ul className="space-y-2">
-                        {product.features.map((feature, index) => (
-                          <li
-                            key={index}
-                            className="flex items-center text-sm text-muted-foreground transition-colors duration-300 group-hover:text-foreground"
-                          >
-                            <span className="mr-2">•</span>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                    <div className="p-6 pt-0">
-                      <Button
-                        asChild
-                        className="w-full transition-transform duration-300 hover:scale-105"
-                      >
-                        <Link href={`/contact?product=${product.id}`}>
-                          Request Demo
-                        </Link>
-                      </Button>
-                    </div>
-                  </Card>
-                ))}
-              </div>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-16 sm:grid-cols-2 lg:grid-cols-3">
+              {products.map((product) => (
+                <Card
+                  key={product.id}
+                  className="group overflow-hidden border-none bg-card shadow-sm hover:shadow-md transition-shadow duration-300"
+                >
+                  <div className="aspect-square relative overflow-hidden rounded-2xl">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      priority={product.id === "control-valve"}
+                    />
+                  </div>
+                  <CardHeader className="p-6">
+                    <product.icon className="h-8 w-8 text-primary transition-transform duration-300 group-hover:scale-110" />
+                    <CardTitle className="text-2xl mt-4">
+                      {product.title}
+                    </CardTitle>
+                    <CardDescription className="text-lg mt-2">
+                      {product.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="px-6">
+                    <ul className="space-y-2">
+                      {product.features.map((feature, index) => (
+                        <li
+                          key={index}
+                          className="flex items-center text-sm text-muted-foreground transition-colors duration-300 group-hover:text-foreground"
+                        >
+                          <span className="mr-2">•</span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <div className="p-6 pt-0">
+                    <Button
+                      asChild
+                      className="w-full transition-transform duration-300 hover:scale-105"
+                    >
+                      <Link href={`/products#${product.id}`}>Learn More</Link>
+                    </Button>
+                  </div>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="relative py-32 bg-black">
+        <section className="relative py-32 bg-background pb-16">
           <div className="absolute inset-0">
             <Image
               src={images.cta.products}
@@ -211,13 +207,13 @@ export default function ProductsPage() {
               className="object-cover opacity-20"
             />
           </div>
-          <div className="container relative px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-7xl">
-              <div className="mx-auto max-w-2xl text-center text-white">
+          <div className="relative">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="mx-auto max-w-2xl text-center text-foreground">
                 <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
                   Need a Custom Solution?
                 </h2>
-                <p className="mt-4 text-xl text-gray-200">
+                <p className="mt-4 text-xl text-muted-foreground">
                   Our team of experts can help you develop tailored automation
                   solutions for your specific needs
                 </p>
